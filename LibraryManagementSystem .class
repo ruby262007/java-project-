@@ -1,0 +1,50 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+import java.util.Scanner;
+
+public class LibraryManagementSystem {
+   public LibraryManagementSystem() {
+   }
+
+   public static void main(String[] var0) {
+      Scanner var1 = new Scanner(System.in);
+      Library var2 = new Library();
+
+      while(true) {
+         System.out.println("\n--- Library Menu ---");
+         System.out.println("1. Add Book");
+         System.out.println("2. Display Books");
+         System.out.println("3. Borrow Book");
+         System.out.println("4. Return Book");
+         System.out.println("5. Exit");
+         System.out.print("Enter your choice: ");
+         switch (var1.nextLine()) {
+            case "1":
+               System.out.print("Enter book title: ");
+               String var6 = var1.nextLine();
+               System.out.print("Enter author name: ");
+               String var7 = var1.nextLine();
+               var2.addBook(var6, var7);
+               break;
+            case "2":
+               var2.displayBooks();
+               break;
+            case "3":
+               System.out.print("Enter the title of the book to borrow: ");
+               String var8 = var1.nextLine();
+               var2.borrowBook(var8);
+               break;
+            case "4":
+               System.out.print("Enter the title of the book to return: ");
+               String var9 = var1.nextLine();
+               var2.returnBook(var9);
+               break;
+            case "5":
+               System.out.println("Exiting the system. Goodbye!");
+               var1.close();
+               return;
+            default:
+               System.out.println("Invalid choice. Please try again.");
+         }
+      }
+   }
+}
